@@ -49,7 +49,7 @@ matrix:
     - env: TARGET=mipsel-unknown-linux-gnu
     # - env: TARGET=powerpc-unknown-linux-gnu
     # - env: TARGET=powerpc64-unknown-linux-gnu
-    # - env: TARGET=powerpc64le-unknown-linux-gnu
+    # - env: TARGET=powerpc64le:unknown-linux-gnu
     - env: TARGET=s390x-unknown-linux-gnu DISABLE_TESTS=1
     - env: TARGET=x86_64-unknown-linux-gnu
     - env: TARGET=x86_64-unknown-linux-musl
@@ -109,7 +109,7 @@ deploy:
   # - Encrypt it: `travis encrypt 0123456789012345678901234567890123456789
   # - Paste the output down here
   api_key:
-    secure: "L00nCOOWVdml2BgeIyt8z0t9zFjfvayATHVZMD1a3UrGq/RBmNH5N3uzpnKvsCEhUAbakd9w17+PyRNSct5pWqSeq87wph5AwXxZ+af7ZlpC+TMgVmbLW+MdioK5vWwywoXHrO2tblFfmwYnOqdzXMkuVSWr/3He1ewrOmOWYTHCqg/hbUKW2oGmeZvggnvhF1OJd20IsYNhf9vEvd0dayRhe9BDUeaJsNGYQjAu9A7AS7adzS+IZtJxZtwonLXUhVw+o75CZgUwjbog+E55/a56/gOGb4fQvlvyqZiYHJWrYd4LYtuVLQsM1bRn1EulFwy5tTevTGsBeIrzWfS+WH60ZUTUgZmHr3W631q/fKI/LuAfqQwJu6QSoZtj+Iw+xg6JvYcUdbHG29yV7+C+N00/kaxyOqcjZhArydW2AKTS1PCYu2dXEaQTXhTuR7evggQBONOtXYN8pO3+Eab1ZBhwQpB89/ZsUHVznDyd3JfhZa6GpGDm4zF3WD2Br71crxhWky9rXloADUJ5JaKNYt4uT5hHQ/Z0prU2+UBk6t90u6GRYfb/CtrTyc+kum/F+KS8lfsr2HvgehnYvckeihAAxeaHF9FV1O1C8fNOFlkHSSRa75xMQG7t+fWL+zU6mzPBp/lMs0Ys6sdlErcq/Qqzv0QkUgCZuGHS4p5ynjA="
+    secure: "OxK5iv7bcTNfwnuMPQznfj+XvP0W4mz2rs+G00AVpMU9wT+fjiOu1a44/nMKC3Uh/vpy32vFrZWmh5nT8vA7+ubZmPfgWRBnHqyVYczvtcagkZDX/m9EoWhmTnZhPOgbWZVEsNKmym1lyeiALDRYcseMsbZ1xKbWiQZkqgA4PGxj1/dNlnp92SNcAnF4ptBL1hfqbDyLQcmQvSU1jtoSLADsFkH24rcDBo9rHr0fvLYFzSYBCTugkRupzowQaORrMkN2dFTNiCPacX9Igg39P527sMerwJYzfwP/01qZP/49MpMWSHrLr4Q80/i+PQ+ifOQlZ+BY4amhQsXTMKgBqfB0QgcsI9dE//4qpmpnLs1MjSKvLG/FR3BY2RDB3Vd3lEXnLg6bYdEIRvIKY3ycfR636hq2pCdJAf7smCmJSyLop0Rchh6oo96P+W54ycW9djCBjJKTJemDjdSqa02OD3/n1k/BSZzCLx8S100e4KSNx4AyipR1C2qrZPEoU8BBFaG9YirA3mQbImMv0HpsPDE9yJwUNKiDUZV+oVFsUIwzcsVciBzvskHxmzygMLVEXg1xfnKicX8Kc+o4y5nIJvYfcMhD8TzF/dMNevoS0Smg8vCoF+W3sCjEfb2QPfbtC/SBvkB/d/1ByP/rHSRhS2X9my09mnsPbcX2zATEWgk="
   file_glob: true
   file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
   on:
