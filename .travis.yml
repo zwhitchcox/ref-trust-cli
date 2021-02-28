@@ -98,6 +98,10 @@ after_script: set +e
 
 before_deploy:
   - sh ci/before_deploy.sh
+  - git config --local user.name "YOUR GIT USER NAME"
+  - git config --local user.email "YOUR GIT USER EMAIL"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
 
 deploy:
   # TODO update `api_key.secure`
@@ -105,7 +109,7 @@ deploy:
   # - Encrypt it: `travis encrypt 0123456789012345678901234567890123456789
   # - Paste the output down here
   api_key:
-    secure: "eMlifURSbBwzeeNQL+VowdTF+kiu0/IsC3aLt3eQRF6pnFWwXqzfOLH9jKllQQX3JP5t10xaEWq7Mb5xYhj41Zb7Iz1zH5qGa7mHkHxo3nK/OsP87SQCAbXnjl8P9sVatQImrejbmYzUdJ440/PtfIZLoN7UsSfKun4K3JQRrd51dpeIZ0kyVhj5Fk3qKU0qfcYd/7PbVWVP0CH9NEmfMYRULZwk4+OocHRUO3lsiwgpsiZUJEfxuTwukbyo+qSt/pHUasICmyrLj3xtCpHsIwjPyOgkTcKByv3OC9gpNNZDpqhEFHnCo9NpxrPqqqO1jnaqgZHesdPIp+wALQvJIabKF5YEEuMiquD/Eluo7BD672VeVw5K/eAc69Eh2JbPfVhBrnFCewlTtVEvUFJ9rmY2jdRgit5wjH9qpu7VWfzsAyM8yG31uPGS58i+jspDrtC+9FU4TchWw+UXHaVG0MBzlE+Q4FASiOONrzI3OhqLBpPWhd1fXKk4ukg6CYg+GxCwz4P0nI7e0VnoVHRiKFABf87wZte70lh+V+uEirJgGqz9yBz/X48c7XChTQuOAJ4664fkxQFLv/rwYKUxKxVr/aokJWMCqVKgsuGyrUnFrMdTdVP4O5z9Nn8bSLeZAPOdkfnuYqr63RngW5fpg8aYCPiuWPHVp/kspf4a3E8="
+    secure: "L00nCOOWVdml2BgeIyt8z0t9zFjfvayATHVZMD1a3UrGq/RBmNH5N3uzpnKvsCEhUAbakd9w17+PyRNSct5pWqSeq87wph5AwXxZ+af7ZlpC+TMgVmbLW+MdioK5vWwywoXHrO2tblFfmwYnOqdzXMkuVSWr/3He1ewrOmOWYTHCqg/hbUKW2oGmeZvggnvhF1OJd20IsYNhf9vEvd0dayRhe9BDUeaJsNGYQjAu9A7AS7adzS+IZtJxZtwonLXUhVw+o75CZgUwjbog+E55/a56/gOGb4fQvlvyqZiYHJWrYd4LYtuVLQsM1bRn1EulFwy5tTevTGsBeIrzWfS+WH60ZUTUgZmHr3W631q/fKI/LuAfqQwJu6QSoZtj+Iw+xg6JvYcUdbHG29yV7+C+N00/kaxyOqcjZhArydW2AKTS1PCYu2dXEaQTXhTuR7evggQBONOtXYN8pO3+Eab1ZBhwQpB89/ZsUHVznDyd3JfhZa6GpGDm4zF3WD2Br71crxhWky9rXloADUJ5JaKNYt4uT5hHQ/Z0prU2+UBk6t90u6GRYfb/CtrTyc+kum/F+KS8lfsr2HvgehnYvckeihAAxeaHF9FV1O1C8fNOFlkHSSRa75xMQG7t+fWL+zU6mzPBp/lMs0Ys6sdlErcq/Qqzv0QkUgCZuGHS4p5ynjA="
   file_glob: true
   file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
   on:
